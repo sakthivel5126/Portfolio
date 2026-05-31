@@ -1,0 +1,42 @@
+.header {
+  margin-bottom: 3rem;
+}
+
+.center {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.subtitle {
+  margin-top: 0.75rem;
+  max-width: 36rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.center .subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,33 @@
+.wrapper {
+  display: inline-flex;
+  min-height: 1.5em;
+  align-items: center;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.role {
+  display: inline-block;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exiting {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.entering {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.dot {
+  margin: 0 0.5rem;
+  color: rgba(95, 95, 95, 0.4);
+  font-weight: 400;
+}
