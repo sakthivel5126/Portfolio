@@ -50,17 +50,5 @@ export const skillCategories = [
       { name: 'Adobe Premiere Pro' },
     ],
   },
-  {
-    id: 'ai-tools',
-    title: 'AI Tools',
-    skills: [
-      { name: 'ChatGPT' },
-      { name: 'Claude' },
-      { name: 'Gemini' },
-      { name: 'Perplexity' },
-      { name: 'Cursor' },
-      {name: 'Codex'},
-      {name : 'Windsurf'},
-    ],
-  },
+  
 ];
