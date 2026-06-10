@@ -1,0 +1,77 @@
+.reveal {
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(45, 18, 18, 0.15);
+  box-shadow: var(--shadow-hover);
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background: rgba(45, 18, 18, 0.08);
+  color: var(--color-accent);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.period {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+
+.degree {
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-primary);
+}
+
+.school {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}

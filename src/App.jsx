@@ -1,7 +1,6 @@
-import { Download, Award, ExternalLink, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 import Navbar        from './components/layout/Navbar';
-import Footer        from './components/layout/Footer';
 import ScrollProgress from './components/ui/ScrollProgress';
 import Hero          from './components/home/Hero';
 import SectionHeading from './components/ui/SectionHeading';
@@ -10,8 +9,9 @@ import SkillCategoryCard  from './components/about/SkillCategoryCard';
 import EducationCard      from './components/about/EducationCard';
 import ProfessionalLinks  from './components/about/ProfessionalLinks';
 import ProjectCard   from './components/projects/ProjectCard';
-import Timeline      from './components/about/Timeline';
-import Button        from './components/ui/Button';
+import Timeline           from './components/about/Timeline';
+import CertificationCard  from './components/about/CertificationCard';
+import ResumeViewer       from './components/about/ResumeViewer';
 import ContactForm   from './components/contact/ContactForm';
 
 import { profile }       from './data/profile';
@@ -31,13 +31,10 @@ function App() {
 
       <main className={s.main}>
 
-        {/* ── HOME ── */}
-        <section id="home">
+        {/* ── ABOUT (landing) ── */}
+        <section id="about" className={s.aboutSection}>
           <Hero />
-        </section>
-
-        {/* ── ABOUT ── */}
-        <section id="about" className={s.sectionWhite}>
+          <div className={`${s.sectionWhite} ${s.aboutBody}`}>
           <div className={layout.container}>
             <SectionHeading
               label="About"
@@ -63,6 +60,7 @@ function App() {
                 </p>
               </div>
             </ScrollReveal>
+          </div>
           </div>
         </section>
 
@@ -100,8 +98,38 @@ function App() {
           </div>
         </section>
 
+        {/* ── TRAINING & CERTIFICATIONS ── */}
+        <section id="credentials" className={s.sectionSurface}>
+          <div className={layout.container}>
+            <SectionHeading
+              label="Credentials"
+              title="Training & Certifications"
+              subtitle="In-plant training programs and industry certifications."
+              align="center"
+            />
+
+            <div className={s.credentialsBlock}>
+              <h3 className={s.subsectionTitle}>Training Undergone</h3>
+              <p className={s.subsectionSubtitle}>In-plant training and learning programs completed.</p>
+              <Timeline items={experience} />
+            </div>
+
+            <div className={s.credentialsBlock}>
+              <h3 className={s.subsectionTitle}>Certifications</h3>
+              <p className={s.subsectionSubtitle}>Industry-recognised certifications.</p>
+              <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+                {certifications.map((cert, i) => (
+                  <ScrollReveal key={cert.id} delay={i * 0.08}>
+                    <CertificationCard cert={cert} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── PROFESSIONAL LINKS ── */}
-        <section className={s.sectionSurface}>
+        <section className={s.sectionWhite}>
           <div className={layout.container}>
             <SectionHeading
               label="Connect"
@@ -114,7 +142,7 @@ function App() {
         </section>
 
         {/* ── PROJECTS ── */}
-        <section id="projects" className={s.sectionWhite}>
+        <section id="projects" className={s.sectionSurface}>
           <div className={layout.containerNarrow}>
             <SectionHeading
               label="Work"
@@ -133,17 +161,17 @@ function App() {
         </section>
 
         {/* ── RESUME ── */}
-        <section id="resume" className={s.sectionSurface}>
+        <section id="resume" className={s.sectionWhite}>
           <div className={layout.containerNarrow}>
             <SectionHeading
               label="Resume"
-              title="Training & Credentials"
-              subtitle="Training undergone, certifications, and downloadable resume."
+              title="Resume"
+              subtitle="View my resume and read a quick overview."
               align="center"
             />
 
             <ScrollReveal>
-              <div className={layout.card} style={{ maxWidth: '48rem', margin: '0 auto 3rem' }}>
+              <div className={layout.card} style={{ maxWidth: '48rem', margin: '0 auto' }}>
                 <div className={s.resumeHeader}>
                   <div>
                     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-primary)' }}>
@@ -153,9 +181,7 @@ function App() {
                       {profile.email} | {profile.phone} | {profile.location}
                     </p>
                   </div>
-                  <Button href={profile.resumePath} size="lg" download>
-                    <Download size={18} /> Download Resume
-                  </Button>
+                  <ResumeViewer resumePath={profile.resumePath} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -174,46 +200,6 @@ function App() {
                 </div>
               </div>
             </ScrollReveal>
-
-            <SectionHeading label="Training" title="Training Undergone" subtitle="In-plant training and learning programs completed." />
-            <Timeline items={experience} />
-          </div>
-        </section>
-
-        {/* ── CERTIFICATIONS ── */}
-        <section className={s.sectionWhite}>
-          <div className={layout.containerNarrow}>
-            <SectionHeading
-              label="Credentials"
-              title="Certifications"
-              subtitle="Industry-recognised certifications."
-              align="center"
-            />
-            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
-              {certifications.map((cert, i) => (
-                <ScrollReveal key={cert.id} delay={i * 0.08}>
-                  <article className={s.certCard}>
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                      <div className={s.certIcon}><Award size={22} /></div>
-                      <div>
-                        <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.3, color: 'var(--color-primary)' }}>
-                          {cert.name}
-                        </h3>
-                        <p style={{ marginTop: '0.25rem', fontSize: '0.875rem', color: 'var(--color-muted)' }}>{cert.issuer}</p>
-                        <span style={{ display: 'inline-block', marginTop: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-accent)' }}>
-                          {cert.year}
-                        </span>
-                      </div>
-                    </div>
-                    {cert.file && (
-                      <a href={cert.file} target="_blank" rel="noopener noreferrer" className={s.certLink}>
-                        <ExternalLink size={14} /> View certificate
-                      </a>
-                    )}
-                  </article>
-                </ScrollReveal>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -266,7 +252,7 @@ function App() {
 
       </main>
 
-      <Footer />
+     
     </div>
   );
 }

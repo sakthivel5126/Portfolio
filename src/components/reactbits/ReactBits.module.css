@@ -1,0 +1,19 @@
+.revealText {
+  display: block;
+}
+
+.revealWord {
+  display: inline-block;
+  margin-right: 0.28em;
+  opacity: 0;
+  transform: translateY(0.45em);
+  white-space: nowrap;
+  animation: revealWord 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes revealWord {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

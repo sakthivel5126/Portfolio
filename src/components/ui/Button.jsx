@@ -1,3 +1,4 @@
+import { useMagnetButton } from '../reactbits/useMagnetButton';
 import styles from './Button.module.css';
 
 const variants = { primary: styles.primary, outline: styles.outline, ghost: styles.ghost };
@@ -12,7 +13,21 @@ function Button({
   className = '',
   ...props
 }) {
+  const { ref, magnetStyle, magnetHandlers } = useMagnetButton();
   const classes = `${styles.base} ${variants[variant] ?? ''} ${sizes[size] ?? ''} ${className}`.trim();
+  const { style, onMouseMove, onMouseLeave, ...restProps } = props;
+  const interactiveProps = {
+    ref,
+    style: { ...style, ...magnetStyle },
+    onMouseMove: (event) => {
+      magnetHandlers.onMouseMove(event);
+      onMouseMove?.(event);
+    },
+    onMouseLeave: (event) => {
+      magnetHandlers.onMouseLeave(event);
+      onMouseLeave?.(event);
+    },
+  };
 
   if (href) {
     return (
@@ -21,16 +36,17 @@ function Button({
         className={classes}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
-        {...props}
+        {...restProps}
+        {...interactiveProps}
       >
         {children}
       </a>
     );
   }
 
-  const { type = 'button', ...buttonProps } = props;
+  const { type = 'button', ...buttonProps } = restProps;
   return (
-    <button type={type} className={classes} {...buttonProps}>
+    <button type={type} className={classes} {...buttonProps} {...interactiveProps}>
       {children}
     </button>
   );

@@ -1,5 +1,8 @@
-# Resume
+# Resume Upload
 
-Place your resume PDF here as `resume.pdf`.
+Place your real resume PDF here as `resume.pdf`.
 
-Default path is configured in `src/data/assets.js`.
+Path: `public/uploads/resume/resume.pdf`
+
+When a valid PDF is present, **View Resume** opens the PDF in the browser.
+If the file is missing or not a valid PDF, the portfolio shows a built-in resume preview instead.

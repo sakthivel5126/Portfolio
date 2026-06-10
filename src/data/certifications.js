@@ -1,17 +1,24 @@
 export const certifications = [
   {
     id: 1,
-    name: 'C++',
+    name: 'Programming Using C++',
     issuer: 'Infosys Springboard',
-    year: 'Completed',
-    file: null,
+    year: 'May 2025',
+    file: '/uploads/certifications/infosys-cpp.png',
   },
   {
     id: 2,
     name: 'Artificial Intelligence Fundamentals',
-    issuer: 'IBM',
-    year: 'Completed',
-    file: null,
+    issuer: 'IBM SkillsBuild',
+    year: 'Feb 2026',
+    file: '/uploads/certifications/ibm-ai-fundamentals.png',
+  },
+  {
+    id: 3,
+    name: 'Getting Started with Artificial Intelligence',
+    issuer: 'IBM SkillsBuild',
+    year: 'Feb 2026',
+    file: '/uploads/certifications/ibm-getting-started-ai.png',
   },
 ];
 

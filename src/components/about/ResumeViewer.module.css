@@ -1,0 +1,148 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4rem 1.25rem 1.5rem;
+  background: rgba(10, 8, 8, 0.88);
+}
+
+.closeButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.viewerFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(94vw, 54rem);
+  max-height: 86vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  background: var(--color-white);
+}
+
+.status {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.pageImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(30, 30, 30, 0.08);
+}
+
+.resumeDocument {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.5rem;
+}
+
+.resumeDocHeader {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resumeDocName {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.resumeDocContact {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.resumeDocSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resumeDocHeading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.resumeDocText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.resumeDocList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  list-style: none;
+}
+
+.resumeDocItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+.resumeDocItem strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.resumeDocSkills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.resumeDocSkills strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--color-primary);
+}

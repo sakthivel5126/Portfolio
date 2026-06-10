@@ -36,7 +36,7 @@ function ProfessionalLinks() {
                 height: '100%',
                 borderRadius: '1.5rem',
                 border: '1px solid var(--color-border)',
-                background: 'var(--color-white)',
+                background: 'var(--color-surface)',
                 padding: '2rem',
                 boxShadow: 'var(--shadow-soft)',
                 textDecoration: 'none',

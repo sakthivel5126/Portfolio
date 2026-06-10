@@ -4,12 +4,13 @@ import { profile } from '../../data/profile';
 import styles from './Navbar.module.css';
 
 const navLinks = [
-  { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'resume', label: 'Resume' },
   { id: 'contact', label: 'Contact' },
 ];
+
+const observedSections = navLinks.map(({ id }) => id);
 
 function scrollToSection(id) {
   const el = document.getElementById(id);
@@ -19,7 +20,7 @@ function scrollToSection(id) {
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,7 +29,7 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    const observers = navLinks.map(({ id }) => {
+    const observers = observedSections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
       const obs = new IntersectionObserver(
@@ -54,7 +55,7 @@ function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.headerScrolled : styles.headerDefault}`}>
       <div className={styles.inner}>
-        <button className={styles.logo} onClick={() => handleNav('home')}>
+        <button className={styles.logo} onClick={() => handleNav('about')}>
           <span className={styles.logoMark}>{profile.firstName.charAt(0)}</span>
           {profile.firstName}
         </button>

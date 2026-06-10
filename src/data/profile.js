@@ -1,4 +1,5 @@
 import { uploads } from './assets.js';
+import { resume } from './resume.js';
 
 export const profile = {
   name: 'Sakthivel V',
@@ -9,7 +10,7 @@ export const profile = {
   heroDescription:
     'Aspiring technology professional with a keen interest in software development and innovation. Focused on learning, growing, and developing the skills needed to contribute effectively in the technology sector.',
 
-  roles: ['Student','Full Stack Development Fresher', 'Frontend & Backend Developer', 'Learner'],
+  roles: ['Student','Full Stack Development Fresher', 'Learner'],
 
   profileImage: uploads.photos.profile,
 
@@ -28,5 +29,5 @@ export const profile = {
     leetcode: 'https://leetcode.com/u/Sakthivel_5/',
   },
 
-  resumePath: uploads.resume,
+  resumePath: resume.path,
 };

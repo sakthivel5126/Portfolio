@@ -1,31 +1,66 @@
 export const skillCategories = [
   {
     id: 'languages',
-    title: 'Technical Languages',
+    title: 'Programming Languages',
     skills: [
-      { name: 'C', level: 75 },
-      { name: 'Java', level: 75 },
-      { name: 'Python', level: 70 },
+      { name: 'C' },
+      { name: 'C++' },
+      { name: 'Java' },
+      { name: 'Python' },
     ],
   },
   {
-    id: 'web',
-    title: 'Technical Tools',
+    id: 'frontend',
+    title: 'Frontend Development',
     skills: [
-      { name: 'HTML', level: 85 },
-      { name: 'CSS', level: 80 },
-      { name: 'JavaScript', level: 75 },
-      { name: 'Git & GitHub', level: 75 },
-      {name: 'React',level: 50},
+      { name: 'HTML' },
+      { name: 'CSS' },
+      { name: 'JavaScript' },
+      { name: 'React' },
+      { name: 'Bootstrap' },
     ],
   },
   {
-    id:'Database',
-    title:'Database',
-    skills:[
-      {name:'MySQL', level: 80},
-      {name:'MongoDB', level: 50},
-      {name:'PostgreSQL', level: 50},
+    id: 'backend-database',
+    title: ' Databases',
+    skills: [
+      { name: 'Firebase' },
+      { name: 'MySQL' },
+      { name: 'MongoDB' },
+      { name: 'PostgreSQL' },
     ],
-  }
+  },
+  {
+    id: 'development-tools',
+    title: 'Development Tools',
+    skills: [
+      { name: 'Git & GitHub' },
+      { name: 'VS Code' },
+      { name: 'Android Studio' },
+      { name: 'Colab' },
+    ],
+  },
+  {
+    id: 'creative-tools',
+    title: 'Design & Media Tools',
+    skills: [
+      { name: 'Canva' },
+      { name: 'Adobe Illustrator' },
+      { name: 'Adobe Photoshop' },
+      { name: 'Adobe Premiere Pro' },
+    ],
+  },
+  {
+    id: 'ai-tools',
+    title: 'AI Tools',
+    skills: [
+      { name: 'ChatGPT' },
+      { name: 'Claude' },
+      { name: 'Gemini' },
+      { name: 'Perplexity' },
+      { name: 'Cursor' },
+      {name: 'Codex'},
+      {name : 'Windsurf'},
+    ],
+  },
 ];
