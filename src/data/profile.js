@@ -10,7 +10,7 @@ export const profile = {
   heroDescription:
     'Aspiring technology professional with a keen interest in software development and innovation. Focused on learning, growing, and developing the skills needed to contribute effectively in the technology sector.',
 
-  roles: ['Student','Full Stack Development Fresher', 'Learner'],
+  roles: ['Student',' Aspiring Full Stack Developer'],
 
   profileImage: uploads.photos.profile,
 
@@ -20,8 +20,7 @@ export const profile = {
     'Motivated to learn, grow, and contribute through real-world projects while continuously improving my technical and problem-solving abilities.',
 
   email: 'v.sakthivel5126@gmail.com',
-  phone: '9344719084',
-  location: 'Erode',
+  location: 'Erode, Tamil Nadu.',
 
   links: {
     linkedin: 'https://www.linkedin.com/in/sakthivel-v-366b7429a',

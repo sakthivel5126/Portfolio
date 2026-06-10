@@ -24,7 +24,6 @@ export const skillCategories = [
     id: 'backend-database',
     title: ' Databases',
     skills: [
-      { name: 'Firebase' },
       { name: 'MySQL' },
       { name: 'MongoDB' },
       { name: 'PostgreSQL' },

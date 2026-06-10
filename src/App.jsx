@@ -31,10 +31,11 @@ function App() {
 
       <main className={s.main}>
 
-        {/* ── ABOUT (landing) ── */}
-        <section id="about" className={s.aboutSection}>
-          <Hero />
-          <div className={`${s.sectionWhite} ${s.aboutBody}`}>
+        {/* ── HERO / LANDING ── */}
+        <Hero />
+
+        {/* ── ABOUT ME ── */}
+        <section id="about" className={s.sectionWhite}>
           <div className={layout.container}>
             <SectionHeading
               label="About"
@@ -61,11 +62,10 @@ function App() {
               </div>
             </ScrollReveal>
           </div>
-          </div>
         </section>
 
         {/* ── SKILLS ── */}
-        <section className={s.sectionSurface}>
+        <section id="skills" className={s.sectionSurface}>
           <div className={layout.container}>
             <SectionHeading
               label="Expertise"
@@ -82,7 +82,7 @@ function App() {
         </section>
 
         {/* ── EDUCATION ── */}
-        <section className={s.sectionWhite}>
+        <section id="education" className={s.sectionWhite}>
           <div className={layout.container}>
             <SectionHeading
               label="Education"
@@ -129,7 +129,7 @@ function App() {
         </section>
 
         {/* ── PROFESSIONAL LINKS ── */}
-        <section className={s.sectionWhite}>
+        <section id="links" className={s.sectionWhite}>
           <div className={layout.container}>
             <SectionHeading
               label="Connect"
@@ -178,7 +178,7 @@ function App() {
                       {profile.name}
                     </h2>
                     <p style={{ marginTop: '0.25rem', fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-                      {profile.email} | {profile.phone} | {profile.location}
+                      {[profile.email, profile.phone, profile.location].filter(Boolean).join(' | ')}
                     </p>
                   </div>
                   <ResumeViewer resumePath={profile.resumePath} />

@@ -10,7 +10,7 @@ function ResumePreview() {
       <header className={styles.resumeDocHeader}>
         <h3 className={styles.resumeDocName}>{profile.name}</h3>
         <p className={styles.resumeDocContact}>
-          {profile.email} · {profile.phone} · {profile.location}
+          {profile.email} · {profile.location}
         </p>
       </header>
 

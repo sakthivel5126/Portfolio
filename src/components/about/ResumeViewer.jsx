@@ -51,37 +51,21 @@ function ResumeViewer({ resumePath, label = 'View Resume' }) {
   useEffect(() => {
     if (!isOpen) return undefined;
 
-    const scrollY = window.scrollY;
-
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') setIsOpen(false);
     };
 
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
       document.body.style.overflow = '';
-      window.scrollTo(0, scrollY);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen]);
 
   useEffect(() => {
-    if (!isOpen) {
-      setPages([]);
-      setUseHtmlPreview(false);
-      setLoading(false);
-      return undefined;
-    }
+    if (!isOpen) return undefined;
 
     let cancelled = false;
 
@@ -104,6 +88,9 @@ function ResumeViewer({ resumePath, label = 'View Resume' }) {
 
     return () => {
       cancelled = true;
+      setPages([]);
+      setUseHtmlPreview(false);
+      setLoading(false);
     };
   }, [isOpen, resumePath]);
 

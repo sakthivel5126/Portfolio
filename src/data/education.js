@@ -10,14 +10,14 @@ export const education = [
     id: 2,
     degree: 'HSLC',
     school: 'Sri Chaitanya Techno School',
-    period: 'Completed',
+    period: 'Completed in 2024',
     description: 'Percentage: 75.2%',
   },
   {
     id: 3,
     degree: 'SSLC',
     school: 'Sharanalya International Montessori School',
-    period: 'Completed',
+    period: 'Completed in 2022',
     description: 'Percentage: 85.4%',
   },
 ];

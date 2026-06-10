@@ -10,7 +10,18 @@ const navLinks = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const observedSections = navLinks.map(({ id }) => id);
+const sectionToNavLink = {
+  about: 'about',
+  skills: 'about',
+  education: 'about',
+  credentials: 'about',
+  links: 'about',
+  projects: 'projects',
+  resume: 'resume',
+  contact: 'contact',
+};
+
+const observedSections = Object.keys(sectionToNavLink);
 
 function scrollToSection(id) {
   const el = document.getElementById(id);
@@ -20,20 +31,42 @@ function scrollToSection(id) {
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (window.scrollY < 50) {
+        setActiveSection('');
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
+    const intersectingSections = new Set();
+
     const observers = observedSections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            intersectingSections.add(id);
+          } else {
+            intersectingSections.delete(id);
+          }
+
+          if (intersectingSections.size > 0) {
+            const activeId = Array.from(intersectingSections)[intersectingSections.size - 1];
+            setActiveSection(sectionToNavLink[activeId] || '');
+          } else {
+            if (window.scrollY < 50) {
+              setActiveSection('');
+            }
+          }
+        },
         { rootMargin: '-40% 0px -55% 0px' }
       );
       obs.observe(el);
@@ -55,7 +88,13 @@ function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.headerScrolled : styles.headerDefault}`}>
       <div className={styles.inner}>
-        <button className={styles.logo} onClick={() => handleNav('about')}>
+        <button
+          className={styles.logo}
+          onClick={() => {
+            setMenuOpen(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
           <span className={styles.logoMark}>{profile.firstName.charAt(0)}</span>
           {profile.firstName}
         </button>
