@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Loader2, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import Button from '../ui/Button';
 import { emailjsConfig, buildEmailParams } from '../../data/emailjs';
 import styles from './ContactForm.module.css';
@@ -78,12 +78,13 @@ function ContactForm() {
         <p className={styles.error} role="alert">{errorMessage}</p>
       )}
 
-      <Button type="submit" size="lg" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>
-        {isLoading ? (
-          <><Loader2 size={18} className={styles.spinIcon} /> Sending...</>
-        ) : (
-          <><Send size={18} /> Send Message</>
-        )}
+      <Button
+        type="submit"
+        size="lg"
+        style={{ marginTop: '1.5rem', width: '100%' }}
+        loading={isLoading}
+      >
+        {isLoading ? 'Sending...' : <><Send size={18} /> Send Message</>}
       </Button>
     </form>
   );

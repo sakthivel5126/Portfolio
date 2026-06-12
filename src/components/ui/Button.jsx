@@ -11,6 +11,7 @@ function Button({
   href,
   external,
   className = '',
+  loading = false,
   ...props
 }) {
   const { ref, magnetStyle, magnetHandlers } = useMagnetButton();
@@ -44,9 +45,10 @@ function Button({
     );
   }
 
-  const { type = 'button', ...buttonProps } = restProps;
+  const { type = 'button', disabled, ...buttonProps } = restProps;
   return (
-    <button type={type} className={classes} {...buttonProps} {...interactiveProps}>
+    <button type={type} className={classes} disabled={loading || disabled} {...buttonProps} {...interactiveProps}>
+      {loading && <span className={styles.spinner} aria-hidden="true" />}
       {children}
     </button>
   );

@@ -82,7 +82,3 @@
   color: #b91c1c;
   animation: slideDown 0.3s ease both;
 }
-
-.spinIcon {
-  animation: spin 1s linear infinite;
-}

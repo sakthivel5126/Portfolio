@@ -69,3 +69,23 @@
 .sm { padding: 0.625rem 1rem; font-size: 0.875rem; }
 .md { padding: 0.75rem 1.5rem; font-size: 0.9375rem; }
 .lg { padding: 1rem 2rem; font-size: 1rem; }
+
+/* Loading Spinner (Bootstrap-style) */
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  border: 0.15em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
