@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 import Navbar        from './components/layout/Navbar';
 import ScrollProgress from './components/ui/ScrollProgress';
@@ -252,7 +253,7 @@ function App() {
 
       </main>
 
-     
+      <Analytics />
     </div>
   );
 }
