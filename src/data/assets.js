@@ -7,7 +7,7 @@
 // ║                                                      ║
 // ║  📄  RESUME (PDF)                                    ║
 // ║      Place your resume at:                           ║
-// ║      public/uploads/resume/resume.pdf                ║
+// ║      public/uploads/resume/Genral_Resume.pdf         ║
 // ║                                                      ║
 // ║  🏅  CERTIFICATIONS                                  ║
 // ║      Place certificate PDFs at:                      ║
