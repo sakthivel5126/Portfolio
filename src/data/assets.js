@@ -19,6 +19,6 @@ export const uploads = {
   photos: {
     profile: '/uploads/photos/profile.jpg',
   },
-  resume: '/uploads/resume/resume.pdf',
+  resume: '/uploads/resume/Genral_Resume.pdf',
   certifications: '/uploads/certifications',
 };
